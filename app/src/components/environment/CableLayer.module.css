@@ -1,0 +1,16 @@
+/* src/components/environment/CableLayer.module.css */
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-object);
+  overflow: visible;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    animation: none !important;
+  }
+}

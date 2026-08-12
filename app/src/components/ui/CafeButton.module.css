@@ -1,0 +1,97 @@
+/* src/components/ui/CafeButton.module.css */
+
+.base {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-courier-prime), "Courier Prime", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: none;
+  user-select: none;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+/* ─── Primary (graphite + cyan active) ──────────────────────────────────────── */
+.primary {
+  background-color: var(--color-surface-container-highest);
+  color: var(--color-on-surface);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.primary:hover {
+  background-color: var(--color-surface-dim);
+}
+
+.primary:active {
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  transform: translate(1px, 1px);
+}
+
+/* ─── Secondary (dark graphite) ─────────────────────────────────────────────── */
+.secondary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+  border-right: 3px solid rgba(0, 0, 0, 0.8);
+}
+
+.secondary:hover {
+  background-color: var(--color-surface-tint);
+}
+
+.secondary:active {
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  transform: translate(1px, 1px);
+}
+
+/* ─── Ghost (text only, minimal chrome) ─────────────────────────────────────── */
+.ghost {
+  background: none;
+  color: var(--color-on-surface-variant);
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ghost:hover {
+  color: var(--color-secondary);
+}
+
+/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+.size-sm {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+}
+
+.size-md {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
+}
+
+.size-lg {
+  font-size: var(--text-md);
+  padding: var(--space-3) var(--space-6);
+}
+
+/* Disabled state */
+.base:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

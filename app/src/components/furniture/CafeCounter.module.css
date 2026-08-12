@@ -1,0 +1,57 @@
+/* src/components/furniture/CafeCounter.module.css */
+
+.counterWrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.countertop {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  border-top: 8px solid #3a0c06;
+  border-left: 4px solid #4A1009;
+  border-right: 4px solid #4A1009;
+  border-bottom: 4px solid #111;
+  padding: var(--space-6);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.itemSlot {
+  position: relative;
+  z-index: 10;
+}
+
+.toffeeBowl {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(200, 200, 200, 0.1) 70%);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.candy {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  transform: rotate(15deg);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .countertop {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+}

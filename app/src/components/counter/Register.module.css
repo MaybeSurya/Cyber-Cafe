@@ -1,0 +1,70 @@
+/* src/components/counter/Register.module.css */
+
+.registerFrame {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-primary-container);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-monitor);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding-bottom: var(--space-2);
+}
+
+.headerTitle {
+  font-family: var(--font-archivo-narrow), sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--color-secondary-container);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.tabBtn {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 11px;
+  background-color: var(--color-surface-dim);
+  border: 1px solid var(--color-outline);
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.tabActive {
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-weight: bold;
+}
+
+.body {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  padding: var(--space-2);
+  min-height: 220px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 11px;
+  color: var(--color-on-primary-container);
+}
+
+.cashTotal {
+  font-weight: bold;
+  color: var(--color-secondary-fixed);
+}

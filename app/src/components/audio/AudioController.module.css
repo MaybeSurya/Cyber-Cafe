@@ -1,0 +1,79 @@
+/* src/components/audio/AudioController.module.css */
+
+.audioController {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  z-index: var(--z-toast);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  user-select: none;
+}
+
+.mainToggle, .expandBtn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-container);
+  color: var(--color-secondary-container);
+  border: 2px solid var(--color-primary);
+  box-shadow: 2px 2px 0 #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: transform var(--duration-fast) var(--ease-standard);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-secondary-container);
+  }
+}
+
+.mixerPanel {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 220px;
+  background-color: var(--color-surface-container-highest);
+  border: 2px solid var(--color-primary);
+  box-shadow: 4px 4px 0 #000;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 11px;
+}
+
+.panelTitle {
+  font-weight: bold;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding-bottom: 4px;
+}
+
+.sliderRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  & label {
+    color: var(--color-on-surface-variant);
+  }
+
+  & input {
+    accent-color: var(--color-secondary);
+    cursor: pointer;
+  }
+}

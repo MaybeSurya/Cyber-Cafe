@@ -1,0 +1,181 @@
+/* src/styles/tokens.css
+   Master design token file. All CSS custom properties for the Cyber Cafe.
+   Sourced from: MASTER_PROJECT_BIBLE.md + physical_memory/DESIGN.md + Stitch exports.
+   Import this in globals.css.
+*/
+
+:root {
+  /* ─── STITCH DESIGN SYSTEM COLORS ─────────────────────────────────────── */
+  /* Environmental */
+  --color-wall-cream: #F5F5DC;
+  --color-mdf-wood: #D2B48C;
+  --color-notice-paper: #FCF9E8;
+  --color-fluorescent-white: #F0F8FF;
+
+  /* Signage */
+  --color-signage-blue: #2A52BE;
+  --color-signage-green: #2E8B57;
+  --color-ink-red: #C81D11;
+
+  /* Surface (Material Design-derived) */
+  --color-surface: #fdf8f8;
+  --color-surface-dim: #ddd9d8;
+  --color-surface-bright: #fdf8f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f3f2;
+  --color-surface-container: #f1edec;
+  --color-surface-container-high: #ebe7e7;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-variant: #e5e2e1;
+
+  /* On-surface */
+  --color-on-surface: #1c1b1b;
+  --color-on-surface-variant: #444748;
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f4f0ef;
+
+  /* Primary (Graphite hardware) */
+  --color-primary: #181919;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2d2d2d;
+  --color-on-primary-container: #959494;
+  --color-primary-fixed: #e4e2e1;
+  --color-primary-fixed-dim: #c8c6c6;
+  --color-inverse-primary: #c8c6c6;
+  --color-surface-tint: #5f5e5e;
+
+  /* Secondary (Cyan screen glow) */
+  --color-secondary: #00677d;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #63dbfe;
+  --color-on-secondary-container: #005e73;
+  --color-secondary-fixed: #b3ebff;
+  --color-secondary-fixed-dim: #5cd5f8;
+
+  /* Tertiary (Near-black partition) */
+  --color-tertiary: #191917;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #2e2d2b;
+  --color-on-tertiary-container: #979491;
+  --color-tertiary-fixed: #e6e2de;
+  --color-tertiary-fixed-dim: #c9c6c3;
+
+  /* Outline */
+  --color-outline: #747878;
+  --color-outline-variant: #c4c7c7;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Background */
+  --color-background: #fdf8f8;
+  --color-on-background: #1c1b1b;
+
+  /* MASTER BIBLE extended colors */
+  --color-wall-warm: #C9BFA9;
+  --color-mdf-dark: #624832;
+  --color-plastic-grey: #77746D;
+  --color-plastic-light: #A9A59A;
+  --color-plastic-dark: #4B4A46;
+  --color-paper: #F0E9D8;
+  --color-paper-aged: #D8CBAE;
+  --color-ink: #272725;
+  --color-ink-soft: #55514A;
+  --color-green: #52715C;
+  --color-green-dark: #354E3D;
+  --color-red: #9A5146;
+  --color-yellow: #C6A85A;
+  --color-blue: #506B7A;
+
+  /* ─── SEMANTIC ALIASES ─────────────────────────────────────────────────── */
+  --bg-primary: var(--color-wall-cream);
+  --bg-secondary: var(--color-surface-container);
+  --surface: var(--color-surface);
+  --surface-dark: var(--color-surface-tint);
+  --text-primary: var(--color-on-surface);
+  --text-secondary: var(--color-on-surface-variant);
+  --text-muted: #777267;
+  --accent-primary: var(--color-secondary);
+  --accent-warning: var(--color-yellow);
+  --accent-danger: var(--color-ink-red);
+  --accent-info: var(--color-blue);
+  --border-light: rgba(28, 27, 27, 0.14);
+  --border-medium: rgba(28, 27, 27, 0.28);
+
+  /* ─── TYPOGRAPHY SCALE ─────────────────────────────────────────────────── */
+  --text-xs: 0.6875rem;    /* 11px */
+  --text-sm: 0.8125rem;    /* 13px */
+  --text-md: 0.9375rem;    /* 15px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.5rem;       /* 24px */
+  --text-2xl: 2rem;        /* 32px */
+  --text-3xl: 3rem;        /* 48px */
+  --text-4xl: 4rem;        /* 64px */
+
+  /* ─── SPACING (4px base unit) ──────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Stitch spacing aliases */
+  --partition-gap: 1rem;
+  --bezel-padding: 1.5rem;
+  --notice-margin: 2rem;
+  --grid-unit: 4px;
+
+  /* ─── BORDER RADIUS ────────────────────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm: 2px;    /* Plastic buttons */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* ─── SHADOWS ──────────────────────────────────────────────────────────── */
+  --shadow-soft: 0 4px 14px rgba(35, 30, 20, 0.12);
+  --shadow-object: 0 10px 30px rgba(20, 18, 14, 0.20);
+  --shadow-laminated: 2px 2px 0px 0px rgba(0,0,0,0.4);
+  --shadow-monitor: 0 20px 50px rgba(0,0,0,0.8), inset 0 2px 5px rgba(255,255,255,0.1);
+  --shadow-bevel: inset 1px 1px 0 rgba(255,255,255,0.8), inset -1px -1px 0 rgba(0,0,0,0.5);
+  --shadow-bevel-pressed: inset 1px 1px 0 rgba(0,0,0,0.5), inset -1px -1px 0 rgba(255,255,255,0.8);
+  --glow-screen: 0 0 15px rgba(0, 163, 196, 0.3);
+  --glow-screen-strong: 0 0 20px rgba(99, 219, 254, 0.4);
+
+  /* ─── MOTION ───────────────────────────────────────────────────────────── */
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-medium: 400ms;
+  --duration-slow: 700ms;
+  --duration-scene: 1200ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-physical: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── Z-INDEX ──────────────────────────────────────────────────────────── */
+  --z-scene: 0;
+  --z-object: 10;
+  --z-ui: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* Reduced motion: strip all transition durations */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-medium: 0ms;
+    --duration-slow: 0ms;
+    --duration-scene: 0ms;
+  }
+}

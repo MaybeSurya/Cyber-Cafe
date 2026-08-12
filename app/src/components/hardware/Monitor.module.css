@@ -1,0 +1,149 @@
+/* src/components/hardware/Monitor.module.css */
+
+.monitor {
+  position: relative;
+  background-color: var(--color-primary-container); /* Graphite bezel */
+  border-radius: var(--radius-md);
+  padding: var(--bezel-padding);
+  padding-bottom: calc(var(--bezel-padding) * 2.5);
+  box-shadow: var(--shadow-monitor);
+  border: 3px solid var(--color-tertiary-container);
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+}
+
+/* Clickable monitor gets cursor pointer */
+[role="button"].monitor {
+  cursor: pointer;
+  transition: filter var(--duration-normal) var(--ease-standard);
+}
+[role="button"].monitor:hover {
+  filter: brightness(1.08);
+}
+[role="button"].monitor:focus-visible {
+  outline: 2px solid var(--color-secondary-container);
+  outline-offset: 4px;
+}
+
+/* Brand text on bottom bezel */
+.brand {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--color-outline);
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Power LED */
+.powerLed {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-6);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ledOn {
+  background-color: var(--color-secondary-container);
+  box-shadow: 0 0 8px var(--color-secondary-container);
+}
+
+.ledOff {
+  background-color: var(--color-surface-tint);
+}
+
+/* Screen surface */
+.screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 4px solid #000;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #000;
+  flex: 1;
+}
+
+.screenOn {
+  box-shadow: var(--glow-screen-strong);
+}
+
+.screenOff {
+  background-color: #0a0a0a;
+}
+
+/* Unpowered — dark with very faint reflection */
+.offScreen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(60, 60, 60, 0.15) 0%,
+    transparent 60%
+  );
+}
+
+/* CRT scanline overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0.12;
+}
+
+/* Corner vignette */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Screen content layer */
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Bezel bottom strip */
+.bezelBottom {
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-4);
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.bezelButton {
+  width: 8px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: #444;
+  box-shadow: var(--shadow-bevel);
+}
+
+.bezelButtonWide {
+  width: 16px;
+}

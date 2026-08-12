@@ -1,0 +1,54 @@
+/* src/components/counter/BillingLog.module.css */
+
+.logWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-family: var(--font-courier-prime), monospace;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-outline);
+  padding: var(--space-3);
+}
+
+.logHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-secondary);
+  font-family: var(--font-archivo-narrow), sans-serif;
+  font-size: var(--text-md);
+
+  & h3 {
+    margin: 0;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+
+  & th {
+    background-color: var(--color-surface-dim);
+    padding: 6px;
+    border-bottom: 2px solid var(--color-on-surface);
+  }
+
+  & td {
+    padding: 6px;
+    border-bottom: 1px dashed var(--color-outline-variant);
+  }
+}
+
+.rowPending {
+  background-color: rgba(99, 219, 254, 0.15);
+}
+
+.statusBadge {
+  background-color: var(--color-on-surface);
+  color: #fff;
+  padding: 1px 4px;
+  text-transform: uppercase;
+  font-size: 10px;
+}

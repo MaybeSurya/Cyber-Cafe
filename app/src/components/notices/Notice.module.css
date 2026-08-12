@@ -1,0 +1,77 @@
+/* src/components/notices/Notice.module.css */
+
+.notice {
+  position: relative;
+  padding: var(--space-4);
+  border: 1px solid var(--color-on-surface);
+  box-shadow: var(--shadow-laminated);
+  cursor: pointer;
+  user-select: none;
+  transition: transform var(--duration-normal) var(--ease-physical), box-shadow var(--duration-normal) var(--ease-physical);
+}
+
+.notice:hover {
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+}
+
+.notice:focus-visible {
+  outline: 2px solid var(--color-secondary-container);
+  outline-offset: 4px;
+}
+
+.tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.laminated {
+  background-color: var(--color-notice-paper);
+  color: var(--color-on-surface);
+  font-family: var(--font-courier-prime), monospace;
+}
+
+.handwritten {
+  background-color: var(--color-notice-paper);
+  color: var(--color-ink-red);
+  font-family: var(--font-vollkorn), serif;
+}
+
+.printed {
+  background-color: #fff;
+  color: var(--color-primary);
+  font-family: var(--font-archivo-narrow), sans-serif;
+}
+
+.sticky {
+  background-color: #fffa8d;
+  color: #333;
+  font-family: var(--font-vollkorn), serif;
+}
+
+.content {
+  font-size: var(--text-md);
+  font-weight: 700;
+  white-space: pre-line;
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.subtext {
+  font-size: var(--text-xs);
+  white-space: pre-line;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.expanded {
+  transform: scale(1.15) !important;
+  z-index: 50;
+}

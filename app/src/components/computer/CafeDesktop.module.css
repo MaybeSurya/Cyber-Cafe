@@ -1,0 +1,78 @@
+/* src/components/computer/CafeDesktop.module.css */
+
+.desktopContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1b5e20 0%, #003399 50%, #1a237e 100%);
+  z-index: 0;
+}
+
+.iconGrid {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  height: calc(100% - 60px);
+}
+
+.musicPlayerBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-family: var(--font-courier-prime), monospace;
+}
+
+.songTitle {
+  font-size: 11px;
+  background-color: #000;
+  color: var(--color-secondary-fixed);
+  padding: 4px;
+  text-align: center;
+}
+
+.controlsRow {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.musicBtn {
+  background-color: var(--color-surface-dim);
+  border: 1px solid var(--color-outline);
+  padding: 2px 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-secondary-container);
+  }
+}
+
+.playlist {
+  list-style: none;
+  font-size: 11px;
+  background-color: #fff;
+  border: 1px solid var(--color-outline);
+  padding: 4px;
+
+  & li {
+    padding: 2px 4px;
+    cursor: pointer;
+  }
+}
+
+.activeSong {
+  background-color: var(--color-secondary);
+  color: #fff;
+}

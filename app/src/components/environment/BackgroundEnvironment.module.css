@@ -1,0 +1,67 @@
+/* src/components/environment/BackgroundEnvironment.module.css */
+
+.container {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-scene);
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+/* Layer AVIF above WebP so it's preferred by browsers that support it */
+.avif {
+  z-index: 2;
+}
+
+.webp {
+  z-index: 1;
+}
+
+/* Vignette for depth and focus */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(20, 18, 14, 0.15) 70%,
+    rgba(20, 18, 14, 0.35) 100%
+  );
+}
+
+/* Mobile framing - tighter crop on the monitor area */
+@media (max-width: 639px) {
+  .image {
+    object-position: center 35%;
+  }
+}
+
+/* Tablet - slightly wider framing */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .image {
+    object-position: center 40%;
+  }
+}
+
+/* Desktop - full room view */
+@media (min-width: 1024px) {
+  .image {
+    object-position: center center;
+  }
+}
+
+/* Reduced motion - no transforms */
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    will-change: auto;
+  }
+}

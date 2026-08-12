@@ -1,0 +1,55 @@
+/* src/app/globals.css */
+@import "../styles/tokens.css";
+@import "../styles/textures.css";
+@import "../styles/typography.css";
+
+@import "tailwindcss";
+
+/* ─── Base reset ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background-color: var(--color-wall-cream);
+  color: var(--color-on-surface);
+  font-family: var(--font-arimo), "Arimo", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Focus ring — visible, high contrast ──────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-secondary-container);
+  outline-offset: 2px;
+}
+
+/* ─── Selection colours ────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+}
+
+/* ─── Scrollbar (subtle) ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-surface-container); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-on-surface-variant); }

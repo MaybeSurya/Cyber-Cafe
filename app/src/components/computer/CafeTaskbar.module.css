@@ -1,0 +1,91 @@
+/* src/components/computer/CafeTaskbar.module.css */
+
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--color-surface-container-highest), var(--color-surface-container-high));
+  border-top: 1px solid var(--color-outline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  z-index: 50;
+  user-select: none;
+}
+
+.startBtn {
+  height: 24px;
+  padding: 0 var(--space-3);
+  background: linear-gradient(to bottom, var(--color-signage-green), #1b5e20);
+  color: #fff;
+  font-family: var(--font-archivo-narrow), sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  font-style: italic;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.startBtn:hover {
+  filter: brightness(1.1);
+}
+
+.windowList {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+  padding: 0 var(--space-2);
+  overflow-x: auto;
+}
+
+.taskTab {
+  height: 24px;
+  min-width: 110px;
+  max-width: 160px;
+  background-color: var(--color-surface-variant);
+  border: 1px solid var(--color-outline);
+  padding: 0 var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-arimo), sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.activeTab {
+  background-color: var(--color-surface);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.tabLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tray {
+  height: 100%;
+  padding: 0 var(--space-3);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--color-surface-container-low);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+  color: var(--color-on-surface-variant);
+}
+
+.clock {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 11px;
+}

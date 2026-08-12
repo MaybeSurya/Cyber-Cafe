@@ -1,0 +1,59 @@
+/* src/components/computer/SystemDialog.module.css */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.modalBox {
+  background-color: var(--color-surface-container-lowest);
+  border: 2px solid var(--color-primary);
+  min-width: 360px;
+  max-width: 480px;
+  box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 1);
+  position: relative;
+}
+
+.modalHeader {
+  height: 32px;
+  background-color: var(--color-secondary-container);
+  border-bottom: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2);
+}
+
+.modalTitle {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-on-secondary-container);
+}
+
+.closeBtn {
+  width: 22px;
+  height: 22px;
+  background-color: var(--color-surface-bright);
+  border: 1px solid var(--color-primary);
+  box-shadow: 1px 1px 0 0 #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-error);
+  color: #fff;
+}
+
+.modalBody {
+  padding: var(--space-6);
+}

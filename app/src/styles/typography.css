@@ -1,0 +1,86 @@
+/* src/styles/typography.css
+   Font utilities for the Cyber Cafe design system.
+   Three-layer typography per DESIGN.md:
+   1. Commercial Signage: Archivo Narrow
+   2. OS Interface:       Arimo
+   3. Physical Notices:   Courier Prime (mono), Vollkorn (handwritten)
+*/
+
+/* ─── Font family utilities ────────────────────────────────────────────────── */
+.font-signage {
+  font-family: var(--font-archivo-narrow), "Archivo Narrow", sans-serif;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-body {
+  font-family: var(--font-arimo), "Arimo", system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-courier-prime), "Courier Prime", "Courier New", monospace;
+}
+
+.font-handwritten {
+  font-family: var(--font-vollkorn), "Vollkorn", Georgia, serif;
+}
+
+/* ─── Headline scale ───────────────────────────────────────────────────────── */
+.text-headline-lg {
+  font-family: var(--font-archivo-narrow), "Archivo Narrow", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-headline-md {
+  font-family: var(--font-archivo-narrow), "Archivo Narrow", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ─── Body scale ───────────────────────────────────────────────────────────── */
+.text-body-lg {
+  font-family: var(--font-arimo), "Arimo", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-body-md {
+  font-family: var(--font-arimo), "Arimo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ─── Mono / label ─────────────────────────────────────────────────────────── */
+.text-label-mono {
+  font-family: var(--font-courier-prime), "Courier Prime", monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* ─── Handwritten notice ───────────────────────────────────────────────────── */
+.text-handwritten-notice {
+  font-family: var(--font-vollkorn), "Vollkorn", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ─── Ink bleed feel — subtle sub-pixel rendering ──────────────────────────── */
+.text-ink {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Signage glow (header branding) ──────────────────────────────────────── */
+.text-glow-cyan {
+  text-shadow: 0 0 8px rgba(99, 219, 254, 0.6);
+}

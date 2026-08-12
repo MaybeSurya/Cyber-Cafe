@@ -1,0 +1,67 @@
+/* src/components/environment/CablePath.module.css */
+
+.path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layer ordering */
+.background {
+  z-index: 1;
+}
+
+.foreground {
+  z-index: 2;
+}
+
+/* Cable appearance */
+.path {
+  /* Stroke and fill are applied to the <path> element */
+}
+
+/* Subtle animation for background cables */
+.animated {
+  will-change: transform;
+}
+
+.animated .path {
+  animation: cableSway 4s ease-in-out infinite;
+}
+
+/* Individual cable animations with different phases */
+.background-decoration.path {
+  animation-delay: 0s;
+}
+.power-strip-to-wall.path {
+  animation-delay: 1s;
+}
+.keyboard-to-tower.path {
+  animation-delay: 2s;
+}
+.mouse-to-tower.path {
+  animation-delay: 3s;
+}
+
+@keyframes cableSway {
+  0%, 100% { 
+    transform: translateX(0) translateY(0); 
+  }
+  25% { 
+    transform: translateX(1px) translateY(0.5px); 
+  }
+  50% { 
+    transform: translateX(2px) translateY(1px); 
+  }
+  75% { 
+    transform: translateX(1px) translateY(0.5px); 
+  }
+}
+
+/* Reduced motion - no animations */
+@media (prefers-reduced-motion: reduce) {
+  .animated .path {
+    animation: none !important;
+  }
+}

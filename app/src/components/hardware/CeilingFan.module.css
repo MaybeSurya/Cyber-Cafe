@@ -1,0 +1,135 @@
+/* src/components/hardware/CeilingFan.module.css */
+
+.wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Motor hub */
+.hub {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+/* Blades container */
+.blades {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual implement blade - fix the syntax error */
+.blade {
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background: var(--color-ink);
+  border-radius: 2px;
+  transform-origin: left center;
+}
+
+/* Different speed classes */
+.speed0 {
+  /* Stopped - blades vertical */
+}
+.speed1 {
+  /* Slow */
+}
+.speed2 {
+  /* Medium */
+}
+.speed3 {
+  /* Fast */
+}
+
+/* Centre cap */
+.cap {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Rod */
+.rod {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 4px;
+  height: 20px;
+  background: var(--color-surface-container-high);
+  border: 1px solid var(--color-outline);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* Pull chain */
+.pullChain {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 4px;
+  height: 20px;
+  background: var(--color-surface-container-high);
+  border: 1px solid var(--color-outline);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.chainLink {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: var(--color-surface-container-highest);
+  border: 1px solid var(--color-outline);
+  border-radius: 2px;
+}
+
+.chainLink:nth-child(1) { top: 0; }
+.chainLink:nth-child(2) { top: 6px; }
+.chainLink:nth-child(3) { top: 12px; }
+.chainPull {
+  position: absolute;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-surface-container);
+  border: 2px solid var(--color-outline);
+  border-radius: 50%;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    transition: none !important;
+  }
+  
+  .hub,
+  .blades,
+  .blade,
+  .cap,
+  .rod,
+  .pullChain,
+  .chainLink,
+  .chainPull {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .blade {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,28 @@
+/* src/components/furniture/PcBooth.module.css */
+
+.boothFrame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.leftPartition, .rightPartition {
+  width: 16px;
+  background-color: var(--color-mdf-dark);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+.centerArea {
+  flex: 1;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .leftPartition, .rightPartition {
+    display: none;
+  }
+}

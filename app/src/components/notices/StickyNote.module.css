@@ -1,0 +1,37 @@
+/* src/components/notices/StickyNote.module.css */
+
+.sticky {
+  position: relative;
+  width: 120px;
+  min-height: 100px;
+  background-color: #fef08a;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: var(--space-3);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  user-select: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.sticky:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+}
+
+.tape {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.text {
+  font-family: var(--font-vollkorn), serif;
+  font-size: 14px;
+  color: var(--color-ink-red);
+  line-height: 1.2;
+  font-weight: 600;
+}
