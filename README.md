@@ -1,4 +1,4 @@
-# NET JUNCTION v2.1 — Indian Cyber-Café Nostalgia Experience (2014–2019)
+# 🖥️ NET JUNCTION v2.1 — Indian Cyber-Café Nostalgia Experience (2014–2019)
 
 > **"One more hour."**  
 > An immersive interactive digital memory space recreating the warmth, mild chaos, tactile objects, and nostalgia of a mid-2010s Indian neighborhood cyber café.
@@ -7,98 +7,108 @@
 
 ---
 
-## 🖥️ About the Project
+## 🛠️ Tech Stack & Technologies
 
-**NET JUNCTION** is an interactive web experience designed to evoke the social memory of stepping inside a neighborhood cyber café in India between **2014 and 2019**. 
+![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Zustand](https://img.shields.io/badge/Zustand-443e38?style=for-the-badge&logo=react&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Howler.js](https://img.shields.io/badge/Howler.js-FF6000?style=for-the-badge&logo=soundcharts&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-Rather than relying on generic cyberpunk, neon gradients, or heavy CRT glitch aesthetics, this project grounds itself in **authentic physical reality**:
-- 🪵 **MDF Wood Partitions & Laminates** with realistic grain textures and hard shadows.
-- 💡 **Fluorescent Tube Lighting** with a subtle startup flicker.
-- 🌀 **Ceiling Fan** with 4 real-time speed settings and sound hum.
-- 🖥️ **VisionMaster Pro CRT/LCD Workstation** featuring a POST boot sequence, Windows-inspired desktop, Winamp-style music player, and a fictional CBSE Board Result Checker.
-- 🖨️ **EPS-9000 Printer & Billing Log** with animated thermal paper receipts and print job fee calculators.
-- 💬 **Bilingual Operator Dialogues** (*"Pen drive laga do"*, *"Server slow hai"*, *"Result aa gaya kya?"*).
-- 📜 **Laminated & Handwritten Notices** (*"No Smoking - Fine ₹500"*, *"No Pendrives!! Virus warning"*, *"Computer Classes Admission Open"*).
-- 🗃️ **Memory Archive** featuring 12 data-driven nostalgic artifacts, culture cards, and stories.
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Technology | Purpose |
+| Core Technology | Icon / Badge | Role & Architecture Details |
 |---|---|---|
-| **Framework** | [Next.js 16 (App Router)](https://nextjs.org/) | SSR, SSG static generation, streaming, `next/font` |
-| **Language** | [TypeScript (Strict Mode)](https://www.typescriptlang.org/) | Strict type safety across components and data schemas |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) + CSS Modules | Custom design token system, physical bevels, noise & scanline overlays |
-| **State Management** | [Zustand](https://github.com/pmndrs/zustand) | Session-persisted global store for scene, audio, interaction & discovery |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) | Physical spring transitions, sliding paper feeds, typewriter boot sequences |
-| **Audio Engine** | [Howler.js](https://howlerjs.com/) | Layered ambient hums, music channels, interaction SFX, browser autoplay gate |
-| **Typography** | `Archivo Narrow`, `Arimo`, `Courier Prime`, `Vollkorn` | 3-layer design system matching commercial signage, OS text & paper notices |
+| **Next.js 16 (App Router)** | `nextdotjs` | SSR, SSG static page prerendering (`generateStaticParams`), Turbopack build engine |
+| **TypeScript (Strict)** | `typescript` | 100% strict type safety for data models, scene states, audio manifests, and UI components |
+| **Tailwind CSS v4** | `tailwind-css` | Token system implementation, physical bevel styles, MDF wood grain, noise & CRT scanlines |
+| **React 19** | `react` | Component architecture, custom hooks (`useAudio`, `useInteraction`, `useScene`, `useDiscovery`) |
+| **Zustand** | `react` | Global session-persisted state machine for audio channels, fan speed, active window, and discovery progress |
+| **Framer Motion** | `framer` | Physical spring motions, entry shutter animations, paper feed sliding, and window drag handlers |
+| **Howler.js** | `soundcharts` | Web Audio singleton factory handling ambient room hums, radio music, keyboard clicks, and printer motors |
+| **Google Fonts** | `googlefonts` | 3-tiered typography system (`Archivo Narrow`, `Arimo`, `Courier Prime`, `Vollkorn`) |
 
 ---
 
-## 📂 Project Structure
+## ✨ Features & Experiences
+
+### 1. 🏬 Authentic Physical Environment
+- **MDF Wood Booth Partitions:** Hand-crafted CSS linear gradients reproducing real MDF wood grain and 3D bevel edges.
+- **Fluorescent Tube Lighting:** Overhead fluorescent light bar featuring a load-in startup flicker animation.
+- **Dynamic 3-Blade Ceiling Fan:** Real-time 4-speed motor control (`0 = Off`, `1 = Slow`, `2 = Medium`, `3 = Fast`) with variable CSS rotation, motor noise levels, and screen reader announcements.
+- **Laminated & Sticky Notices:** Taped paper notices featuring rate charts, *"No Smoking - Fine ₹500"*, *"No Pendrives!! Virus warning"*, and *"Computer Classes Admission Open"*.
+
+### 2. 💻 VisionMaster Pro Computer Workstation
+- **POST Boot Sequence:** Terminal screen simulating mid-2010s PC boot sequence (Award BIOS, memory check, drive detection).
+- **Windows-Style Desktop:** Classic wallpaper, double-clickable desktop shortcuts (Internet Explorer, Winamp, CS 1.6, Exam Results, Print Documents, Recycle Bin).
+- **Fictional Web Browser:** Period-appropriate browser interface with simulated web search and a functional **CBSE Board Exam Result Checker** (enter 7-digit roll number to reveal marks card).
+- **Winamp-Style Music Player:** Audio player interface with nostalgic 2010s playlist selections.
+- **Session Status Panel:** Login screen displaying station status, active session timers, connection speed, and hourly rates.
+
+### 3. 🖨️ Front Counter & Printer Station
+- **EPS-9000 Laser Printer:** Interactive print calculator allowing page count and B&W (₹2/pg) vs Colour (₹10/pg) selection with animated emerging thermal receipt paper.
+- **AIWA Café FM Radio:** Countertop radio with frequency dial, indicator LED, and audio playback.
+- **Counter Register & Billing Log:** Operator terminal featuring active billing ledger logs, cash drawer trigger, and total cash tracker.
+- **Toffee Bowl Detail:** Nostalgic candy bowl resting on the main MDF counter.
+
+### 4. 💬 Interactive Operator Character
+- Ambient operator speech bubble cycling through authentic Hindi/Hinglish dialogues:
+  - *"Pen drive laga do."*
+  - *"Server slow hai."*
+  - *"Result aa gaya kya?"*
+  - *"Print kitne page ka hai?"*
+  - *"Bhai, time ho gaya."*
+
+### 5. 🗃️ Memory Archive & Discovery System
+- Collection of **12 data-driven nostalgic memories** (Wired Mouse, Membrane Keyboard, ₹2 Printout, LAN Gaming, Result Day, Hourly Rates, etc.).
+- Category tab filtering (`Objects`, `Internet`, `Gaming`, `Culture`, `People`, `Places`).
+- Deep-link memory detail pages (`/memories/[slug]`) generated at build time via Next.js Static Site Generation (SSG).
+- Floating **Discovery Counter** tracking visited objects and unlocked memories.
+
+### 6. 🔊 Audio Architecture & Autoplay Compliance
+- **Autoplay Gate:** First user gesture anywhere on the screen seamlessly unlocks the browser `AudioContext`.
+- **Audio Mixer Widget:** Persistent bottom-right floating audio controller with master mute toggle and individual volume sliders for Ambience, Radio/Music, and Interaction SFX.
+
+---
+
+## 🕹️ Interactive Usage Guide
+
+| Object / Element | Interaction | Result / Action |
+|---|---|---|
+| **Computer Monitor** | Click / Double-click | Powers on PC, executes boot sequence, opens `/experience/computer` desktop view |
+| **Desktop Shortcuts** | Double-click | Opens browser, Winamp music player, exam result portal, or print slip modal |
+| **Ceiling Fan** | Click | Cycles through fan speeds (`Off` → `Slow` → `Medium` → `Fast`), alters sound hum level |
+| **Printer** | Click | Opens print job calculator, animates paper feed, generates thermal receipt |
+| **Notice Board** | Click / Hover | Zooms notice card for legible reading |
+| **Café Radio** | Click Play/Pause | Toggles café background FM music |
+| **Operator Speech Bubble** | Click | Cycles to the next operator dialogue |
+| **Audio Controller** | Click tune icon | Opens multi-channel audio mixer panel |
+
+---
+
+## 📂 Application Routes
 
 ```text
-Cyber-Cafe/
-├── app/                              # Next.js 16 Application Root
-│   ├── src/
-│   │   ├── app/                      # App Router Pages & Routes
-│   │   │   ├── layout.tsx            # Root layout (Fonts, SEO, Material Symbols)
-│   │   │   ├── page.tsx              # Route: / (Entry shutter arrival)
-│   │   │   ├── experience/           # Route: /experience (Café interior scene)
-│   │   │   │   └── computer/         # Route: /experience/computer (In-monitor desktop)
-│   │   │   ├── memories/             # Route: /memories (Archive grid)
-│   │   │   │   └── [slug]/           # Route: /memories/[slug] (Memory detail view)
-│   │   │   └── about/                # Route: /about (Product vision & credits)
-│   │   │
-│   │   ├── components/
-│   │   │   ├── environment/          # CyberCafeScene, CafeWall, CafeFloor, FluorescentLight, MdfPartition, AmbientLayer
-│   │   │   ├── hardware/             # Monitor, Keyboard, Mouse, Printer, CeilingFan, CafeRadio, PcStation
-│   │   │   ├── computer/             # CafeDesktop, CafeBrowser, SystemWindow, SystemDialog, DesktopIcon, CafeTaskbar, StatusPanel, BootSequence, Receipt
-│   │   │   ├── notices/              # NoticeBoard, Notice, RateChart, StickyNote
-│   │   │   ├── counter/              # Register, BillingLog, PrintPanel
-│   │   │   ├── furniture/            # PcBooth, CafeCounter
-│   │   │   ├── archive/              # MemoryGrid, MemoryCard, MemoryDetail
-│   │   │   ├── audio/                # AudioController mixer
-│   │   │   ├── interactions/         # Hotspot, InteractionPrompt, DiscoveryCounter
-│   │   │   └── ui/                   # CafeButton, CafeInput, LoadingState, ErrorState
-│   │   │
-│   │   ├── data/                     # Data schemas: memories, notices, objects, stories, audio tracks
-│   │   ├── hooks/                    # useAudio, useInteraction, useScene, useDiscovery, useReducedMotion
-│   │   ├── store/                    # cafeStore.ts (Zustand)
-│   │   ├── lib/                      # utils.ts, audio.ts, analytics.ts, accessibility.ts, constants.ts
-│   │   └── styles/                   # tokens.css, textures.css, typography.css
-│   │
-│   ├── package.json
-│   └── next.config.ts
-│
-├── MASTER_PROJECT_BIBLE.md           # Product Vision & Complete Specification
-└── README.md
+/
+├── /                             # Entry Scene (Shutter arrival & welcome CTA)
+├── /experience                   # Cyber Café Interior Scene (Booth, Counter, Notices, Fan)
+├── /experience/computer          # In-Monitor OS Desktop (Browser, Winamp, Result Checker)
+├── /memories                     # Memory Archive Index Grid (Category filters)
+├── /memories/[slug]              # Single Memory Detail Page (Dynamic SSG paths)
+└── /about                        # Core Design Statement, Emotional North Star & Credits
 ```
 
 ---
 
-## 🚦 Application Routes
-
-| Route | View | Description |
-|---|---|---|
-| `/` | `EntryScene` | Arrival shutter scene introducing SAIDEEP CYBER SOLUTIONS |
-| `/experience` | `CyberCafeScene` | Main interactive café interior — booth, counter, notices & fan |
-| `/experience/computer` | `CafeDesktop` | Full-screen monitor view with OS desktop, browser & Winamp player |
-| `/memories` | `MemoryGrid` | Archive index with category filtering (Objects, Internet, Gaming, Culture, People, Places) |
-| `/memories/[slug]` | `MemoryDetail` | Deep-link memory detail page (SSG static paths generated) |
-| `/about` | `AboutPage` | Product philosophy, core design rules & emotional North Star |
-
----
-
-## 🚀 Quick Start Guide
+## 🚀 Installation & Setup
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18.17.0 or higher recommended)
-- `npm` or `pnpm`
+- **Node.js** (v18.17.0 or higher)
+- **npm** or **pnpm**
 
-### Installation & Local Development
+### Step-by-step Execution
 
 1. **Clone the repository:**
    ```bash
@@ -106,7 +116,7 @@ Cyber-Cafe/
    cd Cyber-Cafe
    ```
 
-2. **Navigate to the Next.js application directory:**
+2. **Navigate to the application folder:**
    ```bash
    cd app
    ```
@@ -116,39 +126,30 @@ Cyber-Cafe/
    npm install
    ```
 
-4. **Start the development server:**
+4. **Run development server:**
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. **Open in browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 🧪 Verification & Production Build
-
-To run typechecking and verify the production build locally:
+## 🧪 Verification & Build Commands
 
 ```bash
 cd app
 
-# Run TypeScript strict typecheck
+# Run TypeScript strict typecheck (0 errors)
 npm run typecheck
 
-# Run production build (Static Site Generation / SSG)
+# Run Next.js production build (Prerenders all 20 static pages)
 npm run build
 
-# Preview production build locally
+# Start production server
 npm run start
 ```
-
----
-
-## ♿ Accessibility & Motion Features
-
-- **Keyboard Navigation:** Every hotspot, button, and notice is reachable via `Tab` and activated using `Enter` or `Space`.
-- **Reduced Motion Support:** Fully respects `prefers-reduced-motion: reduce` by disabling fan rotations, entry shutter movement, and scene transitions via `useReducedMotion()`.
-- **Screen Reader Friendly:** Decorative scene objects are marked `aria-hidden="true"`, while interactive objects provide descriptive ARIA labels and live region announcements.
 
 ---
 
@@ -159,4 +160,3 @@ npm run start
 - ⚠️ **Disclaimer:** *SURYA CYBER SOLUTIONS is a completely imaginary, fictional name created solely for artistic and nostalgic purposes. It does not resolve to or represent any real-world brand, business, trademark, or registered company. Any resemblance or match to any real-world entity is purely coincidental.*
 
 © 2026 SURYA CYBER SOLUTIONS — NO SMOKING · NO PENDRIVES.
-
