@@ -169,7 +169,7 @@ export default function CyberCafeScene() {
 
       {/* ─── Footer ───────────────────────────────────────────────────────── */}
       <footer className={styles.footer}>
-        <p>© 2017 SAIDEEP CYBER SOLUTIONS - NO SMOKING - NO PENDRIVES</p>
+        <p>© 2017 SURYA CYBER SOLUTIONS - NO SMOKING - NO PENDRIVES</p>
         <div className={styles.footerLinks}>
           <Link href="/about">Terms</Link>
           <Link href="/memories">Rate Chart</Link>

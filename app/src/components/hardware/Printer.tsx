@@ -53,7 +53,7 @@ export default function Printer() {
       {(printing || printedReceipt) && (
         <div className={`${styles.paper} ${printing ? styles.paperPrinting : ""}`}>
           <div className={styles.receiptContent}>
-            <p className={styles.receiptHeader}>SAIDEEP CYBER</p>
+            <p className={styles.receiptHeader}>SURYA CYBER</p>
             <p>-- PRINT TEST --</p>
             <p>Pages: 1 | B&W</p>
             <p>Rate: ₹2</p>

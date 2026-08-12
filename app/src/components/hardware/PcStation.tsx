@@ -1,16 +1,16 @@
-// src/components/hardware/PcStation.tsx
 "use client";
+// src/components/hardware/PcStation.tsx
+// Physical workstation composing Monitor, Keyboard, Mouse, and StickyNote.
 
 import Monitor from "./Monitor";
-import KeyboardEnhanced from "./KeyboardEnhanced";
-import MouseEnhanced from "./MouseEnhanced";
+import Keyboard from "./Keyboard";
+import Mouse from "./Mouse";
 import PcTower from "./PcTower";
 import StickyNote from "@/components/notices/StickyNote";
 import StatusPanel from "@/components/computer/StatusPanel";
 import { useCafeStore } from "@/store/cafeStore";
 import { useAudio } from "@/hooks/useAudio";
 import { useScene } from "@/hooks/useScene";
-import PCExperience from "@/components/experience/PCExperience";
 import styles from "./PcStation.module.css";
 
 interface PcStationProps {
@@ -22,19 +22,17 @@ export default function PcStation({
   stationId = "STATION_04",
   connectedSpeed = "CONNECTED / 100Mbps",
 }: PcStationProps) {
-  const { pcState } = useCafeStore((s) => s.pcState);
+  const computerPoweredOn = useCafeStore((s) => s.computerPoweredOn);
+  const powerOnComputer = useCafeStore((s) => s.powerOnComputer);
   const { playSfx } = useAudio();
   const { navigateTo } = useScene();
-  const powerOnPC = useCafeStore((s) => s.powerOnPC);
 
-  const handleClick = () => {
-    if (pcState === 'OFF') {
-      powerOnPC();
+  const handleOpenComputer = () => {
+    if (!computerPoweredOn) {
+      powerOnComputer();
       playSfx("sfx-computer-power-on");
-    } else if (pcState === 'SESSION_ACTIVE' || pcState === 'READY') {
-      // If already powered on, navigate to computer experience
-      navigateTo("pc-experience");
     }
+    navigateTo("computer");
   };
 
   return (
@@ -43,8 +41,8 @@ export default function PcStation({
       <div className={styles.monitorContainer}>
         <Monitor
           brand="VisionMaster Pro"
-          powered={pcState !== 'OFF' && pcState !== 'SHUTDOWN'}
-          onClick={handleClick}
+          powered={computerPoweredOn}
+          onClick={handleOpenComputer}
           ariaLabel={`Station ${stationId} computer screen. Click to use computer.`}
         >
           <StatusPanel stationId={stationId} connectedSpeed={connectedSpeed} />
@@ -57,11 +55,9 @@ export default function PcStation({
 
       {/* Desk Surface (Keyboard & Mouse) */}
       <div className={styles.deskSurface}>
-        <KeyboardEnhanced />
-        <MouseEnhanced />
-        {pcState !== 'OFF' && pcState !== 'SHUTDOWN' && (
-          <PcTower />
-        )}
+        <Keyboard />
+        <Mouse />
+        {computerPoweredOn && stationId === "STATION_04" && <PcTower />}
       </div>
     </div>
   );

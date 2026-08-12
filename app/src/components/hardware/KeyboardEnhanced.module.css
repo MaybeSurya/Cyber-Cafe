@@ -1,0 +1,203 @@
+// src/components/hardware/KeyboardEnhanced.module.css
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 280px;
+}
+
+.topBevel {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #fff 0%, #fff 30%, #ccc 70%, #fff 100%);
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #777;
+  border-bottom: 1px solid #777;
+}
+
+.keyGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--space-1);
+  width: 100%;
+  margin-top: var(--space-1);
+}
+
+.key {
+  width: 100%;
+  aspect-ratio: 1 / 0.75;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  font-family: var(--font-courier-prime), monospace;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-on-surface);
+  position: relative;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.keyWorn {
+  background: #b8a594;
+  border-color: #8a6a4a;
+  border-top-color: #c9b59a;
+  border-left-color: #c9b59a;
+  border-bottom-color: #5a4632;
+  border-right-color: #5a4632;
+}
+
+.spacebar {
+  grid-column: 1 / -1;
+  height: 100%;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* Pressed state */
+.pressed .key {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  transform: translateY(1px);
+}
+
+.pressed .keyWorn {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Key labels (simplified) */
+.key:nth-child(1)::after { content: "Esc"; font-size: 8px; }
+.key:nth-child(2)::after { content: "F1"; font-size: 8px; }
+.key:nth-child(3)::after { content: "F2"; font-size: 8px; }
+.key:nth-child(4)::after { content: "F3"; font-size: 8px; }
+.key:nth-child(5)::after { content: "F4"; font-size: 8px; }
+.key:nth-child(6)::after { content: "F5"; font-size: 8px; }
+.key:nth-child(7)::after { content: "F6"; font-size: 8px; }
+.key:nth-child(8)::after { content: "F7"; font-size: 8px; }
+.key:nth-child(9)::after { content: "F8"; font-size: 8px; }
+.key:nth-child(10)::after { content: "F9"; font-size: 8px; }
+.key:nth-child(11)::after { content: "F10"; font-size: 8px; }
+.key:nth-child(12)::after { content: "F11"; font-size: 8px; }
+
+.key:nth-child(13)::after { content: "F12"; font-size: 8px; }
+.key:nth-child(14)::after { content: "Print"; font-size: 8px; }
+.key:nth-child(15)::after { content: "Scroll"; font-size: 8px; }
+.key:nth-child(16)::after { content: "Pause"; font-size: 8px; }
+
+.key:nth-child(17)::after { content: "`"; font-size: 10px; }
+.key:nth-child(18)::after { content: "1"; font-size: 10px; }
+.key:nth-child(19)::after { content: "2"; font-size: 10px; }
+.key:nth-child(20)::after { content: "3"; font-size: 10px; }
+.key:nth-child(21)::after { content: "4"; font-size: 10px; }
+.key:nth-child(22)::after { content: "5"; font-size: 10px; }
+.key:nth-child(23)::after { content: "6"; font-size: 10px; }
+.key:nth-child(24)::after { content: "7"; font-size: 10px; }
+.key:nth-child(25)::after { content: "8"; font-size: 10px; }
+.key:nth-child(26)::after { content: "9"; font-size: 10px; }
+.key:nth-child(27)::after { content: "0"; font-size: 10px; }
+.key:nth-child(28)::after { content: "-"; font-size: 10px; }
+.key:nth-child(29)::after { content: "="; font-size: 10px; }
+.key:nth-child(30)::after { content: "Backspace"; font-size: 8px; text-align: left; padding-left: 2px; }
+
+.key:nth-child(31)::after { content: "Tab"; font-size: 8px; }
+.key:nth-child(32)::after { content: "Q"; font-size: 10px; }
+.key:nth-child(33)::after { content: "W"; font-size: 10px; }
+.key:nth-child(33)::after { content: "E"; font-size: 10px; }
+.key:nth-child(34)::after { content: "R"; font-size: 10px; }
+.key:nth-child(35)::after { content: "T"; font-size: 10px; }
+.key:nth-child(36)::after { content: "Y"; font-size: 10px; }
+.key:nth-child(37)::after { content: "U"; font-size: 10px; }
+.key:nth-child(38)::after { content: "I"; font-size: 10px; }
+.key:nth-child(39)::after { content: "O"; font-size: 10px; }
+.key:nth-child(40)::after { content: "P"; font-size: 10px; }
+.key:nth-child(41)::after { content: "["; font-size: 10px; }
+.key:nth-child(42)::after { content: "]"; font-size: 10px; }
+.key:nth-child(43)::after { content: "\\"; font-size: 10px; }
+.key:nth-child(44)::after { content: "Caps"; font-size: 8px; }
+
+.key:nth-child(46)::after { content: "A"; font-size: 10px; }
+.key:nth-child(47)::after { content: "S"; font-size: 10px; }
+.key:nth-child(48)::after { content: "D"; font-size: 10px; }
+.key:nth-child(49)::after { content: "F"; font-size: 10px; }
+.key:nth-child(50)::after { content: "G"; font-size: 10px; }
+.key:nth-child(51)::after { content: "H"; font-size: 10px; }
+.key:nth-child(52)::after { content: "J"; font-size: 10px; }
+.key:nth-child(53)::after { content: "K"; font-size: 10px; }
+.key:nth-child(54)::after { content: "L"; font-size: 10px; }
+.key:nth-child(55)::after { content: ";"; font-size: 10px; }
+.key:nth-child(56)::after { content: "'"; font-size: 10px; }
+.key:nth-child(57)::after { content: "Enter"; font-size: 8px; text-align: left; padding-left: 2px; }
+
+.key:nth-child(58)::after { content: "Shift"; font-size: 8px; }
+.key:nth-child(59)::after { content: "Z"; font-size: 10px; }
+.key:nth-child(60)::after { content: "X"; font-size: 10px; }
+.key:nth-child(61)::after { content: "C"; font-size: 10px; }
+.key:nth-child(62)::after { content: "V"; font-size: 10px; }
+.key:nth-child(63)::after { content: "B"; font-size: 10px; }
+.key:nth-child(64)::after { content: "N"; font-size: 10px; }
+.key:nth-child(65)::after { content: "M"; font-size: 10px; }
+.key:nth-child(66)::after { content: ","; font-size: 10px; }
+.key:nth-child(67)::after { content: "."; font-size: 10px; }
+.key:nth-child(68)::after { content: "/"; font-size: 10px; }
+.key:nth-child(69)::after { content: "Shift"; font-size: 8px; }
+
+.key:nth-child(70)::after { content: "Ctrl"; font-size: 8px; }
+.key:nth-child(71)::after { content: "Win"; font-size: 8px; }
+.key:nth-child(72)::after { content: "Alt"; font-size: 8px; }
+.key:nth-child(73)::after { content: " "; font-size: 10px; } /* Space */
+.key:nth-child(74)::after { content: "Alt"; font-size: 8px; }
+.key:nth-child(75)::after { content: "Win"; font-size: 8px; }
+.key:nth-child(76)::after { content: "Menu"; font-size: 8px; }
+.key:nth-child(77)::after { content: "Ctrl"; font-size: 8px; }
+
+/* Spacebar styling */
+.spacebar::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(to right, #fff 0%, #fff 40%, #eee 60%, #fff 100%);
+  border-radius: 1px;
+}
+
+/* Hover/focus states */
+.keyboard:hover .key:not(:active),
+.keyboard:focus-within .key:not(:active) {
+  border-top-color: rgba(255, 255, 255, 0.9);
+  border-left-color: rgba(255, 255, 255, 0.9);
+}
+
+.keyboard:hover .keyWorn:not(:active),
+.keyboard:focus-within .keyWorn:not(:active) {
+  border-top-color: #d4b78e;
+  border-left-color: #d4b78e;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .keyboard {
+    transition: none !important;
+  }
+  
+  .key {
+    transition: none !important;
+  }
+}

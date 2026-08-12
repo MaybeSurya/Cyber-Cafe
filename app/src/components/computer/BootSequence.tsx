@@ -18,7 +18,7 @@ const BOOT_LOGS = [
   "Detecting Secondary Master ... DVD-RW",
   "",
   "Initializing Network Interface (100Mbps)... OK",
-  "Loading SAIDEEP CYBER SYSTEM v2.1 ...",
+  "Loading SURYA CYBER SYSTEM v2.1 ...",
 ];
 
 export default function BootSequence({ onComplete }: { onComplete?: () => void }) {

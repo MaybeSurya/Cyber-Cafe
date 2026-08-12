@@ -85,6 +85,19 @@ export default function AboutPage() {
           the operator shouted from the counter — and suddenly it was getting dark outside.
         </p>
 
+        <div
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.05)",
+            border: "1px dashed var(--color-outline)",
+            padding: "var(--space-4)",
+            fontSize: "var(--text-xs)",
+            fontFamily: "var(--font-courier-prime)",
+            color: "var(--color-on-surface-variant)",
+          }}
+        >
+          <strong>DISCLAIMER:</strong> SURYA CYBER SOLUTIONS is a completely imaginary, fictional name created solely for artistic and nostalgic purposes. It does not resolve to or represent any real-world brand, business, trademark, or registered company. Any match or resemblance is purely coincidental.
+        </div>
+
         <div style={{ marginTop: "var(--space-4)", display: "flex", gap: "var(--space-4)" }}>
           <Link href="/experience">
             <CafeButton size="lg">ENTER CAFÉ INTERIOR</CafeButton>

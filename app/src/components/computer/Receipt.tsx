@@ -22,7 +22,7 @@ export default function Receipt({
   return (
     <div className={styles.receiptPaper}>
       <div className={styles.header}>
-        <h3>SAIDEEP CYBER</h3>
+        <h3>SURYA CYBER</h3>
         <p>{stationId} RECEIPT</p>
       </div>
 

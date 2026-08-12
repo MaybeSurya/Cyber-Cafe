@@ -31,7 +31,7 @@ export default function EntryScene() {
       {/* Central Welcome Box */}
       <div className={`${styles.welcomeBox} ${opening ? styles.boxOpening : ""}`}>
         <h1 className={styles.title}>CYBER INTERNET CAFE</h1>
-        <p className={styles.subtitle}>SAIDEEP CYBER SOLUTIONS · ESTD 2014</p>
+        <p className={styles.subtitle}>SURYA CYBER SOLUTIONS · ESTD 2014</p>
         
         <div className={styles.statusBadge}>
           <div className={styles.dot} />
@@ -48,7 +48,7 @@ export default function EntryScene() {
       </div>
 
       <footer className={styles.entryFooter}>
-        <p>© 2017 SAIDEEP CYBER SOLUTIONS · NO SMOKING · NO PENDRIVES</p>
+        <p>© 2017 SURYA CYBER SOLUTIONS · NO SMOKING · NO PENDRIVES</p>
       </footer>
     </div>
   );

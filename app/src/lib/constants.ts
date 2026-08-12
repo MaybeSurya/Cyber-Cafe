@@ -3,7 +3,8 @@
 
 export const CAFE_NAME = "NET JUNCTION";
 export const CAFE_VERSION = "v2.1";
-export const OPERATOR_SHOP_NAME = "SAIDEEP CYBER SOLUTIONS";
+export const OPERATOR_SHOP_NAME = "SURYA CYBER SOLUTIONS";
+export const DISCLAIMER = "SURYA CYBER SOLUTIONS is a completely imaginary, fictional name created for artistic nostalgia. It does not resolve to any real brand, business, or company; any match or resemblance is entirely coincidental.";
 export const ESTD_YEAR = "2014";
 
 export const HOURLY_RATE = 30;

@@ -5,16 +5,42 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCafeStore } from "@/store/cafeStore";
 import { useAudio } from "@/hooks/useAudio";
-import { useScene } from "@/hooks/useScene";
+import { useRouter } from "next/navigation";
 import styles from "./PCExperience.module.css";
 
 export default function PCExperience() {
-  const { pcState, sessionTimer, errorMessage } = useCafeStore((s) => s);
-  const { setSessionTimer, startSession, endSession, loadSession, showError, clearError, shutdownPC, completeBoot, showLogin } = useCafeStore((s) => s);
+  const { 
+    pcState, 
+    sessionTimer, 
+    errorMessage,
+    powerOnPC,
+    completeBoot,
+    showLogin,
+    startSession,
+    endSession,
+    loadSession,
+    showError,
+    clearError,
+    shutdownPC
+  } = useCafeStore((s) => ({
+    pcState: s.pcState,
+    sessionTimer: s.sessionTimer,
+    errorMessage: s.errorMessage,
+    powerOnPC: s.powerOnPC,
+    completeBoot: s.completeBoot,
+    showLogin: s.showLogin,
+    startSession: s.startSession,
+    endSession: s.endSession,
+    loadSession: s.loadSession,
+    showError: s.showError,
+    clearError: s.clearError,
+    shutdownPC: s.shutdownPC
+  }));
+  
   const { playSfx } = useAudio();
-  const { navigateTo } = useScene();
-  const [bootProgress, setBootProgress] = useState(0);
-  const [loginProgress, setLoginProgress] = useState(0);
+  const router = useRouter();
+  const [bootProgress, setBootProgress] = useState<number>(0);
+  const [loginProgress, setLoginProgress] = useState<number>(0);
 
   // Handle automatic transitions based on state
   useEffect(() => {
@@ -23,7 +49,8 @@ export default function PCExperience() {
         // Simulate boot process
         const bootInterval = setInterval(() => {
           setBootProgress((prev) => {
-            const newProgress = prev + 10;
+            const newPrev = Math.max(0, prev); // Ensure prev is number
+            const newProgress = newPrev + 10;
             if (newProgress >= 100) {
               clearInterval(bootInterval);
               completeBoot(); // Transition to LOGIN state
@@ -39,7 +66,8 @@ export default function PCExperience() {
         // Simulate login process
         const loginInterval = setInterval(() => {
           setLoginProgress((prev) => {
-            const newProgress = prev + 15;
+            const newPrev = Math.max(0, prev); // Ensure prev is number
+            const newProgress = newPrev + 15;
             if (newProgress >= 100) {
               clearInterval(loginInterval);
               startSession(); // Transition to SESSION_ACTIVE state
@@ -63,11 +91,16 @@ export default function PCExperience() {
       case 'LOADING':
         // Auto-transition from loading after specified duration
         const loadingInterval = setInterval(() => {
-          setSessionTimer((prev) => prev - 1);
-          if (sessionTimer <= 0) {
-            clearInterval(loadingInterval);
-            startSession(); // Return to active session after loading
-          }
+          setSessionTimer((prev) => {
+            const newPrev = Math.max(0, prev); // Ensure prev is number
+            const newVal = newPrev - 1;
+            if (newVal <= 0) {
+              clearInterval(loadingInterval);
+              startSession(); // Return to active session after loading
+              return 0;
+            }
+            return newVal;
+          });
         }, 1000);
         
         return () => clearInterval(loadingInterval);
@@ -81,14 +114,14 @@ export default function PCExperience() {
         setTimeout(() => {
           // This would typically power off the computer
           // For now, just return to OFF state
-          // endSession(); // This would set pcState to 'OFF'
+          endSession(); // This would set pcState to 'OFF'
         }, 1000);
         break;
         
       default:
         break;
     }
-  }, [pcState, sessionTimer, errorMessage, completeBoot, showLogin, startSession, endSession, loadSession, showError, clearError, shutdownPC, navigateTo]);
+  }, [pcState, sessionTimer, errorMessage, completeBoot, showLogin, startSession, endSession, loadSession, showError, clearError, shutdownPC, playSfx]);
 
   // Handle shutdown when power button is held or similar
   const handlePowerClick = () => {
@@ -218,220 +251,4 @@ function renderLoginState() {
             <div className="pc-login-progress">
               <div className="pc-login-bar">
                 <div className="pc-login-fill" style={{ width: `${loginProgress}%` }} />
-              </div>
-              <span className="pc-login-text">{loginProgress}%</span>
-            </div>
-            <button 
-              className="pc-login-button"
-              onClick={showLogin}
-              disabled={loginProgress < 100}
-            >
-              Login
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        Enter Credentials to Access System
-      </div>
-    </div>
-  );
-}
-
-function renderReadyState() {
-  return (
-    <div className="pc-experience-container" role="status" aria-live="polite">
-      <div className="pc-screen ready">
-        <div className="pc-screen-content">
-          <div className="pc-power-indicator on" />
-          <div className="pc-desktop-preview">
-            <div className="pc-wallpaper" />
-            <div className="pc-icon-grid">
-              {/* Desktop icons preview */}
-              <div className="pc-icon">���🌐</div>
-              <div className="pc-icon">���📁</div>
-              <div className="pc-icon">���🎵</div>
-              <div className="pc-icon">���🖨��️</div>
-            </div>
-            <div className="pc-taskbar-preview">
-              <div className="pc-start-button">Start</div>
-              <div className="pc-time">00:00</div>
-            </div>
-          </div>
-          <div className="pc-session-info">
-            <div className="pc-info-row">
-              <span className="pc-info-label">Station:</span>
-              <span className="pc-info-value">PC-07</span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Status:</span>
-              <span className="pc-info-value">Ready</span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Connection:</span>
-              <span className="pc-info-value">CONNECTED</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        Click to Start Session
-      </div>
-    </div>
-  );
-}
-
-function renderSessionActiveState() {
-  const hours = Math.floor(sessionTimer / 3600);
-  const minutes = Math.floor((sessionTimer % 3600) / 60);
-  const seconds = sessionTimer % 60;
-  
-  return (
-    <div className="pc-experience-container" role="status" aria-live="polite">
-      <div className="pc-screen active">
-        <div className="pc-screen-content">
-          <div className="pc-power-indicator on" />
-          <div className="pc-desktop">
-            <div className="pc-wallpaper" />
-            <div className="pc-icon-grid">
-              {/* Desktop icons */}
-              <div className="pc-icon" onClick={() => {/* Open browser */}}>���🌐</div>
-              <div className="pc-icon" onClick={() => {/* Open file explorer */}}>���📁</div>
-              <div className="pc-icon" onClick={() => {/* Open music player */}}>���🎵</div>
-              <div className="pc-icon" onClick={() => {/* Open print dialog */}}>���🖨��️</div>
-            </div>
-            <div className="pc-window-preview">
-              {/* Simulate active window */}
-              <div className="pc-window-frame">
-                <div className="pc-window-title-bar">
-                  <span className="pc-window-title">Internet Explorer</span>
-                  <div className="pc-window-controls">
-                    <button className="pc-window-control">−</button>
-                    <button className="pc-window-control">�□</button>
-                    <button className="pc-window-control">×</button>
-                  </div>
-                </div>
-                <div className="pc-window-content">
-                  <div className="pc-address-bar">
-                    <span className="pc-protocol">http://</span>
-                    <input 
-                      type="text" 
-                      className="pc-address-input"
-                      placeholder="www.google.co.in"
-                    />
-                  </div>
-                  <div className="pc-page-content">
-                    <div className="pc-page-title">Google Search</div>
-                    <div className="pc-search-box">
-                      <input 
-                        type="text" 
-                        className="pc-search-input"
-                        placeholder="Search..."
-                      />
-                      <button className="pc-search-button">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="pc-taskbar">
-              <div className="pc-start-button">Start</div>
-              <div className="pc-tray-icons">
-                <div className="pc-tray-icon">���🔊</div>
-                <div className="pc-tray-icon">���📶</div>
-                <div className="pc-tray-icon">���🔋</div>
-              </div>
-              <div className="pc-time">
-                {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
-              </div>
-            </div>
-          </div>
-          <div className="pc-session-info">
-            <div className="pc-info-row">
-              <span className="pc-info-label">Station:</span>
-              <span className="pc-info-value">PC-07</span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Status:</span>
-              <span className="pc-info-value">Session Active</span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Time Online:</span>
-              <span className="pc-info-value">
-                {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
-              </span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Rate:</span>
-              <span className="pc-info-value">�₹20 / HOUR</span>
-            </div>
-            <div className="pc-info-row">
-              <span className="pc-info-label">Connection:</span>
-              <span className="pc-info-value">CONNECTED</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        Session Active - Click to Power Off
-      </div>
-    </div>
-  );
-}
-
-function renderLoadingState() {
-  return (
-    <div className="pc-experience-container" role="status" aria-live="polite">
-      <div className="pc-screen loading">
-        <div className="pc-screen-content">
-          <div className="pc-power-indicator on" />
-          <div className="pc-loading-spinner" />
-          <div className="pc-loading-text">Loading...</div>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        Please Wait
-      </div>
-    </div>
-  );
-}
-
-function renderErrorState() {
-  return (
-    <div className="pc-experience-container" role="status" aria-live="polite">
-      <div className="pc-screen error">
-        <div className="pc-screen-content">
-          <div className="pc-power-indicator error" />
-          <div className="pc-error-icon">��⚠</div>
-          <div className="pc-error-title">System Error</div>
-          <div className="pc-error-message">{errorMessage}</div>
-          <button 
-            className="pc-error-button"
-            onClick={clearError}
-          >
-            OK
-          </button>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        An Error Occurred
-      </div>
-    </div>
-  );
-}
-
-function renderShutdownState() {
-  return (
-    <div className="pc-experience-container" role="status" aria-live="polite">
-      <div className="pc-screen shutdown">
-        <div className="pc-screen-content">
-          <div className="pc-power-indicator off" />
-          <div className="pc-shutdown-text">Shutting Down...</div>
-        </div>
-      </div>
-      <div className="pc-instructions">
-        System Shutting Down
-      </div>
-    </div>
-  );
-}
+              </div
